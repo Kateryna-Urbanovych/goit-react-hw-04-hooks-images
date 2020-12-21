@@ -1,0 +1,23 @@
+/*
+* Стили status === 'idle' (StateMachine)
+*/
+.idleText {
+    margin-top: 30px;
+    text-align: center;
+
+    font-family: cursive;
+    font-size: 30px;
+    color: #3f51b5;
+}
+
+/*
+* Стили status === 'rejected' (StateMachine)
+*/
+.rejectedText {
+    margin-top: 30px;
+    text-align: center;
+
+    font-family: cursive;
+    font-size: 30px;
+    color: #e32636;
+}
