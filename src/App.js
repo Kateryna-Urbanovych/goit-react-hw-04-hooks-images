@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import pixabayAPI from './servises/pixabay-api';
 import Searchbar from './components/Searchbar';
 import SearchForm from './components/SearchForm';
@@ -40,9 +41,16 @@ export default function App() {
         pixabayAPI
             .fetchImage(imageValue, page)
             .then(images => {
+                // if (images.hits.length === 0) {
+                //     return Promise.reject(
+                //         new Error(`No images found on request ${imageValue}`),
+                //     );
+                // }
+
                 if (images.hits.length === 0) {
-                    return Promise.reject(
-                        new Error(`No images found on request ${imageValue}`),
+                    setStatus(Status.IDLE);
+                    return toast.error(
+                        `No images found on request ${imageValue}`,
                     );
                 }
 
